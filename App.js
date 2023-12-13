@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MyTabs from './app/Tabs.js';
+import JEBANY from './app/PIZDA.js';
+import * as Updates from 'expo-updates';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    useEffect(() => {
+        const updateApp = async () => {
+            try {
+                const update = await Updates.checkForUpdateAsync();
+                if (update.isAvailable) {
+                    await Updates.fetchUpdateAsync();
+                    await Updates.reloadAsync();
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        updateApp();
+    }, []);
+
+    return (
+        <NavigationContainer>
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Tabs"
+                component={MyTabs}
+                options={{
+                    header: () => null,
+                }}
+            />
+
+               <Stack.Screen
+                            name="PIZDA"
+                            component={JEBANY}
+                            options={{
+                                header: () => null,
+                            }}
+                        />
+
+        </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
