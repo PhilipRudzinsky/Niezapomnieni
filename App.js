@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './app/Tabs.js';
-import JEBANY from './app/PIZDA.js';
 import * as Updates from 'expo-updates';
 
 
@@ -36,15 +35,6 @@ export default function App() {
                     header: () => null,
                 }}
             />
-
-               <Stack.Screen
-                            name="PIZDA"
-                            component={JEBANY}
-                            options={{
-                                header: () => null,
-                            }}
-                        />
-
         </Stack.Navigator>
         </NavigationContainer>
     );
