@@ -1,52 +1,47 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {Dimensions} from "react-native";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    backgroundColor: '#f5f5f5',
-  },
-  biography: {
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  bio: {
-    fontSize: 14,
-  },
-});
+const WindowWidth = Dimensions.get('window').width;
+const WindowHeight = Dimensions.get('window').height;
 
-const Biography = ({ character }) => (
-  <View style={styles.biography}>
-    <Text style={styles.name}>{character.name}</Text>
-    <Text style={styles.bio}>{character.bio}</Text>
-  </View>
-);
+const Tab = createMaterialTopTabNavigator();
+import JanCz from "./JanCz";
+import Witold from "./Witold";
+import JanSz from "./JanSz";
+import Stefan from "./Stefan";
 
-const HistoryScreen = () => {
-  const [characters] = useState([
-    { name: 'Postać 1', bio: 'Biografia 1' },
-    { name: 'Postać 2', bio: 'Biografia 2' },
-    { name: 'Postać 3', bio: 'Biografia 3' },
-    { name: 'Postać 4', bio: 'Biografia 4' },
-    // Dodaj więcej postaci według potrzeb
-  ]);
-
+export default function HistoryScreen() {
   return (
-    <View style={styles.container}>
-      {characters.map((character, index) => (
-        <Biography key={index} character={character} />
-      ))}
-      <StatusBar style="auto" />
-    </View>
+      <Tab.Navigator
+          initialRouteName="Feed"
+          screenOptions={{
+            tabBarActiveTintColor: '#e91e63',
+            tabBarInactiveTintColor: 'grey',
+            tabBarLabelStyle: { fontSize: 11 },
+            tabBarStyle: { backgroundColor: 'white' },
+            tabBarContentContainerStyle: { marginTop: WindowHeight*0.02 },
+          }}
+      >
+        <Tab.Screen
+            name="Jan Szczepanik"
+            component={JanSz}
+            options={{ tabBarLabel: 'Jan \n Szczepaniak' }}
+        />
+        <Tab.Screen
+            name="Jan Czochralski"
+            component={JanCz}
+            options={{ tabBarLabel: 'Jan Czochralski' }}
+        />
+        <Tab.Screen
+            name="Witold Zglenicki"
+            component={Witold}
+            options={{ tabBarLabel: 'Witold Zglenicki' }}
+        />
+        <Tab.Screen
+            name="Stefan Drzewiecki"
+            component={Stefan}
+            options={{ tabBarLabel: 'Stefan Drzewiecki' }}
+        />
+      </Tab.Navigator>
   );
-};
-
-export default HistoryScreen;
+}

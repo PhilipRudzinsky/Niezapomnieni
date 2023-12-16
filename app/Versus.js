@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
+import {View, Text, Button, StyleSheet, TouchableOpacity, Dimensions, Image} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const VersusScreen = () => {
   const [questions] = useState([
-    { question: 'Jak nazywa się pradziad?', answers: ['Małpa', 'Dziad', 'Bumcykcyk', 'Debian który ma małpę joł'], correctAnswer: 'Odpowiedź 1' },
-    // Dodaj więcej pytań według potrzeb
+    { question: 'Jak nazywa się pradziad?', answers: ['Małpa', 'Dziad', 'Bumcykcyk', 'Debian który ma małpę joł'], correctAnswer: 'Małpa' },
+    { question: 'TY KURWO', answers: ['Shakira', 'YeahBunny', 'Polish Misiura', 'Alek Utas'], correctAnswer: 'YeahBunny' },
   ]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [scores, setScores] = useState([0, 0]); // Wyniki dla dwóch graczy
@@ -22,12 +22,16 @@ const VersusScreen = () => {
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      alert(`Gra zakończona! Wyniki: Gracz 1: ${scores[0]}, Gracz 2: ${scores[1]}`);
+      alert(`DAWAJ SZMATO JEBANA`);
     }
   };
 
   return (
       <View style={styles.container}>
+        <Image
+            style={styles.logo}
+            source={require('../assets/logoNiezapomnieni.png')}
+        />
         <Text style={styles.question}>Pytanie {currentQuestionIndex + 1}</Text>
         <Text style={styles.questionContent}>{questions[currentQuestionIndex].question}</Text>
         {questions[currentQuestionIndex].answers.map((answer, index) => (
@@ -45,9 +49,9 @@ const VersusScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
-    justifyContent: 'flex-end', // Align children to the end of the container
+    justifyContent: 'flex-end',
     padding: 20,
   },
   question: {
@@ -62,8 +66,8 @@ const styles = StyleSheet.create({
   answerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: windowWidth * 0.95, // 95% of window width
-    marginBottom: windowHeight* 0.01, // 2% of window height
+    width: windowWidth * 0.95,
+    marginBottom: windowHeight* 0.01,
 
   },
   score: {
@@ -72,8 +76,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: '#841584',
-    height: windowHeight * 0.11, // 10% of window height
+    backgroundColor: '#d322d1',
+    height: windowHeight * 0.11,
     padding: 10,
     borderRadius: 5,
     justifyContent: 'center',
@@ -81,6 +85,11 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     textAlign: 'center',
+  },
+  logo: {
+    height: windowHeight* 0.3,
+    resizeMode: 'contain',
+    marginBottom: windowHeight* -0.015,
   },
 });
 export default VersusScreen;
