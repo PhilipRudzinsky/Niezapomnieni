@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, Text, Button, StyleSheet, TouchableOpacity, Dimensions, Image} from 'react-native';
+import {View, Text, Button, StyleSheet, TouchableOpacity, Dimensions, Image, StatusBar} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -10,7 +10,7 @@ const VersusScreen = () => {
     { question: 'TY KURWO', answers: ['Shakira', 'YeahBunny', 'Polish Misiura', 'Alek Utas'], correctAnswer: 'YeahBunny' },
   ]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [scores, setScores] = useState([0, 0]); // Wyniki dla dwóch graczy
+  const [scores, setScores] = useState([0, 0]);
 
   const handleAnswer = (playerIndex, answer) => {
     if (answer === questions[currentQuestionIndex].correctAnswer) {
@@ -41,6 +41,7 @@ const VersusScreen = () => {
               </TouchableOpacity>
             </View>
         ))}
+        <StatusBar style="auto" />
       </View>
   );
 };

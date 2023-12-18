@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import {View, Text, Button, StatusBar} from 'react-native';
 
 const QuizScreen = () => {
   const [questions] = useState([
@@ -28,6 +28,7 @@ const QuizScreen = () => {
         <Button key={index} title={answer} onPress={() => handleAnswer(answer)} />
       ))}
       <Text>Wynik: {score}</Text>
+      <StatusBar style="auto" />
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
 
 const Stefan = () => {
   const biography = `Stefan Drzewiecki (ur. 26 lipca 1844 w Kunkach, zm. 23 kwietnia 1938 w Paryżu) – polski wynalazca, konstruktor, pionier techniki lotniczej i podwodnej.`;
@@ -12,6 +12,7 @@ const Stefan = () => {
       />
       <Text style={styles.title}>Stefan Drzewiecki</Text>
       <Text style={styles.biography}>{biography}</Text>
+      <StatusBar style="auto" />
     </View>
   );
 };

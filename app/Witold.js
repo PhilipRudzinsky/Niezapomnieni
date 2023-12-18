@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
 
 const Witold = () => {
   const biography = `Witold Zglenicki (ur. 1850, zm. 1904) – polski geolog, wynalazca, pionier przemysłu naftowego.`;
@@ -12,6 +12,7 @@ const Witold = () => {
       />
       <Text style={styles.title}>Witold Zglenicki</Text>
       <Text style={styles.biography}>{biography}</Text>
+      <StatusBar style="auto" />
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import {Dimensions} from "react-native";
+import {Dimensions, SafeAreaView, StatusBar} from "react-native";
 
 const WindowWidth = Dimensions.get('window').width;
 const WindowHeight = Dimensions.get('window').height;
@@ -22,6 +22,8 @@ export default function HistoryScreen() {
             tabBarContentContainerStyle: { marginTop: WindowHeight*0.02 },
           }}
       >
+
+
         <Tab.Screen
             name="Jan Szczepanik"
             component={JanSz}
@@ -43,5 +45,7 @@ export default function HistoryScreen() {
             options={{ tabBarLabel: 'Stefan Drzewiecki' }}
         />
       </Tab.Navigator>
+
+
   );
 }
