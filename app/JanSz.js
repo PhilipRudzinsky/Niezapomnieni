@@ -6,8 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 const JanSz = () => {
-  const biography = `Jan Szczepanik (ur. 13 czerwca 1872 w Rudnikach, zm. 18 maja 1926 w Tarnowie) – polski wynalazca, konstruktor, chemik, fotograf, pionier telewizji i kinematografii.`;
-
+    const biography = `Jan Szczepanik (ur. 13 czerwca 1872 w Rudnikach, zm. 18 maja 1926 w Tarnowie) – polski wynalazca, konstruktor, chemik, fotograf, pionier telewizji i kinematografii. Szczepanik jest znany przede wszystkim z wynalezienia telewizora mechanicznego, który stał się prototypem dla późniejszych telewizorów. Jego wkład w rozwój technologii telewizyjnej i kinematografii jest nieoceniony.`;
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -33,9 +32,6 @@ const JanSz = () => {
       <Text style={styles.title}>Jan Szczepanik</Text>
       <Text style={styles.biography}>
         {biography}
-        <Text style={{ fontSize: 16, color: 'black', fontStyle: 'italic' }}>
-          (1872-1926)
-        </Text>
       </Text>
       <MaterialIcons name="favorite" size={24} color="red" />
       <StatusBar style="auto" />

@@ -75,7 +75,7 @@ export default function MyTabs() {
       />
       <Tab.Screen
         name="Quiz"
-        component={QuizScreen}
+        component={VersusScreen}
         options={{
           tabBarLabel: 'Quiz',
           tabBarIcon: ({ color }) => (

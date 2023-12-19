@@ -7,8 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
 const JanCz = () => {
-  const biography = `Jan Czochralski (ur. 23 października 1885 w Kcyni, zm. 22 kwietnia 1953 w Poznaniu) – polski chemik, metaloznawca, wynalazca metody hodowli monokryształów (metoda Czochralskiego), która pozwoliła na rozwój nowoczesnej elektroniki.`;
-
+const biography = `Jan Czochralski (ur. 23 października 1885 w Kcyni, zm. 22 kwietnia 1953 w Poznaniu) – polski chemik, metaloznawca, wynalazca metody hodowli monokryształów (metoda Czochralskiego), która pozwoliła na rozwój nowoczesnej elektroniki. Czochralski jest znany przede wszystkim z wynalezienia metody, która pozwoliła na produkcję czystych monokryształów, co było kluczowe dla rozwoju technologii półprzewodnikowych. Jego wkład w rozwój nauki i technologii jest nieoceniony.`;
   const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: windowHeight* 0.3,
+      width: windowWidth*0.5,
     resizeMode: 'contain',
     marginBottom: windowHeight* -0.015,
     borderWidth: 5,
